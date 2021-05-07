@@ -29,6 +29,6 @@ class CreateContratadoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contratadores');
+        Schema::dropIfExists('contratadors');
     }
 }

@@ -22,7 +22,6 @@ class CreateProfesionalesTable extends Migration
             $table->integer("telefono");
             $table->integer("edad");
             $table->integer("id_categoria");
-            $table->integer("id_puntuacion");
             $table->string("descripcion_profesional", 200);
         });
     }
@@ -34,6 +33,6 @@ class CreateProfesionalesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profesionales');
+        Schema::dropIfExists('profesionals');
     }
 }

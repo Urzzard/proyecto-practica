@@ -1,18 +1,32 @@
+@extends("layout")
+@section("torax")
 <table>
-    <tr>
-        <th>Usuario</th>
-        <th>Contraseña</th>
-        <th>Nombre Usuario</th>
-        <th>Correo</th>
-    </tr>
+    
     <form method="post" action="/ingresar-contra">
         @csrf
-    <tr>
-        <th><input type="text" name="usu"/></th>
-        <th><input type="text" name="pass"/></th>
-        <th><input type="text" name="nom"/></th>
-        <th><input type="text" name="ema"/></th>
-    </tr>
+    
+        USUARIO <br>
+        <input type="text" name="usu"/><br>
+        @error('usuario')
+            <span style="color: red">{{$message}}</span>
+        @enderror
+        <br>CONTRASEÑA<br>
+        <input type="text" name="pass"/><br>
+        @error('contraseña_usuario')
+            <span style="color: red">{{$message}}</span>
+        @enderror
+        <br>NOMBRE COMPLETO<br>
+        <input type="text" name="nom"/><br>
+        @error('nombrec_usuario')
+            <span style="color: red">{{$message}}</span>
+        @enderror
+        <br>CORREO<br>
+        <input type="text" name="ema"/><br>
+        @error('correo_usuario')
+            <span style="color: red">{{$message}}</span>
+        @enderror
+    
     <tr><td colspan="5"><input type="submit" name="submit" value="guardar"/></td></tr>
     </form>
 </table>
+@endsection
