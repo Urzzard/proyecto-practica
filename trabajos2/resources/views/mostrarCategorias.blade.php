@@ -1,5 +1,5 @@
-@extends('layout')
-@section("primero")
+@extends('home')
+@section("principal")
 
 <style>
     .cate{
@@ -9,7 +9,7 @@
         flex-wrap: wrap;
     }
     .cate a{
-        background: #6A9EFF;
+        background: #56B0E8;
         border-radius: 20px;
         text-decoration: none;
         font-size: 25px;

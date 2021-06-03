@@ -14,11 +14,8 @@ class CreateProfesionalesTable extends Migration
     public function up()
     {
         Schema::create('profesionals', function (Blueprint $table) {
-            $table->increments("id");
-            $table->string("usuario", 40);
-            $table->string("contraseña_usuario", 20);
-            $table->string("nombrec_usuario", 80);
-            $table->string("correo_usuario", 80);
+            $table->increments("id_profesional");
+            $table->integer("id_usuario");
             $table->integer("telefono");
             $table->integer("edad");
             $table->integer("id_categoria");

@@ -15,10 +15,9 @@ class CreateValProsTable extends Migration
     {
         Schema::create('val_pros', function (Blueprint $table) {
             $table->increments("id_valoracion");
+            $table->integer("id_usuario");
             $table->integer("puntaje");
             $table->string("opinion", 200);
-            $table->integer("id_pro");
-            $table->integer("id_cont");
         });
     }
 

@@ -18,13 +18,23 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ed95f46cfc.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <style>
+        .uno{
+            background: #56B0E8
+        }
+        .navbar-brand{
+            font-size: 40px;
+        }
+    </style>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="uno container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    LABURO
+                    <!--{{ config('app.name', 'Laravel') }}-->
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

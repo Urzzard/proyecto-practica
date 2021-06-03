@@ -43,7 +43,7 @@
 <div class="contenedor-prin container-xl">
     <div class="navegador row">
         <div class="logo-in col">
-            <a href="/inicio" class="display-6">APPSERVICES</a>
+            <a href="/inicio" class="display-6">LABURO</a>
             <input type="text" class="">
         </div>
         <div class="col">
@@ -51,7 +51,7 @@
                 <a href="">VER PERFIL</a>
                 <a href="/mostrar-cat">VER CATEGORIAS</a>
                 <a href="/mostrar-profe">VER PROFESIONALES</a>
-                <a href="/bienve">CERRAR SESION</a>
+                <a href="/">CERRAR SESION</a>
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateValPublisTable extends Migration
+class CreateTipoUsuariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateValPublisTable extends Migration
      */
     public function up()
     {
-        Schema::create('val_publis', function (Blueprint $table) {
-            $table->increments("id_val_publi");
-            $table->integer("id_publi");
-            $table->integer("id_usuario");
-            $table->integer("puntaje");
+        Schema::create('tipo_usuarios', function (Blueprint $table) {
+            $table->increments("id_categoria");
+            $table->string("nombre_tipo");
         });
     }
 
@@ -28,6 +26,6 @@ class CreateValPublisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('val_publis');
+        Schema::dropIfExists('tipo_usuarios');
     }
 }

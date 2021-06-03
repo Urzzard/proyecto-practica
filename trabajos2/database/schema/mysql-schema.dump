@@ -1,0 +1,226 @@
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+DROP TABLE IF EXISTS `categoria`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `categoria` (
+  `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_categoria` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`id_categoria`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `categorias`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `categorias` (
+  `id_categoria` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_categoria` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_categoria`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `contratador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contratador` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(40) NOT NULL,
+  `contraseña_usuario` varchar(20) NOT NULL,
+  `nombrec_usuario` varchar(80) NOT NULL,
+  `correo_usuario` varchar(80) NOT NULL,
+  PRIMARY KEY (`id_usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `contratadors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contratadors` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contraseña_usuario` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nombrec_usuario` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `correo_usuario` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `failed_jobs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `password_resets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `profesional`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `profesional` (
+  `id_profesional` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(40) NOT NULL,
+  `contraseña_usuario` varchar(20) NOT NULL,
+  `nombrec_usuario` varchar(80) NOT NULL,
+  `correo_usuario` varchar(80) NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `edad` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
+  `descripcion_profesional` varchar(200) NOT NULL,
+  PRIMARY KEY (`id_profesional`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `profesionals`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `profesionals` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contraseña_usuario` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nombrec_usuario` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `correo_usuario` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `edad` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
+  `descripcion_profesional` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `publicacion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `publicacion` (
+  `id_publi` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo_publi` varchar(120) NOT NULL,
+  `des_publi` varchar(200) NOT NULL,
+  `id_profe` int(11) NOT NULL,
+  PRIMARY KEY (`id_publi`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `publicacions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `publicacions` (
+  `id_publi` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `titulo_publi` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `des_publi` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_profe` int(11) NOT NULL,
+  PRIMARY KEY (`id_publi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `tipo_usuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tipo_usuarios` (
+  `id_categoria` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_tipo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_categoria`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `val_pro`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `val_pro` (
+  `id_valoracion` int(11) NOT NULL AUTO_INCREMENT,
+  `puntaje` int(11) NOT NULL,
+  `opinion` varchar(200) NOT NULL,
+  `id_profe` int(11) NOT NULL,
+  `id_contra` int(11) NOT NULL,
+  PRIMARY KEY (`id_valoracion`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `val_pros`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `val_pros` (
+  `id_valoracion` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `puntaje` int(11) NOT NULL,
+  `opinion` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_pro` int(11) NOT NULL,
+  `id_cont` int(11) NOT NULL,
+  PRIMARY KEY (`id_valoracion`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `val_publi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `val_publi` (
+  `id_val_publi` int(11) NOT NULL AUTO_INCREMENT,
+  `puntaje` int(11) NOT NULL,
+  `id_publi` int(11) NOT NULL,
+  `id_contra` int(11) NOT NULL,
+  PRIMARY KEY (`id_val_publi`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `val_publis`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `val_publis` (
+  `id_val_publi` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `puntaje` int(11) NOT NULL,
+  `id_publi` int(11) NOT NULL,
+  `id_contra` int(11) NOT NULL,
+  PRIMARY KEY (`id_val_publi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+INSERT INTO `migrations` VALUES (6,'2021_04_23_221713_create_valoraciones_table',1);
+INSERT INTO `migrations` VALUES (20,'2014_10_12_000000_create_users_table',2);
+INSERT INTO `migrations` VALUES (21,'2014_10_12_100000_create_password_resets_table',2);
+INSERT INTO `migrations` VALUES (22,'2019_08_19_000000_create_failed_jobs_table',2);
+INSERT INTO `migrations` VALUES (23,'2021_04_23_221643_create_contratadores_table',2);
+INSERT INTO `migrations` VALUES (24,'2021_04_23_221659_create_profesionales_table',2);
+INSERT INTO `migrations` VALUES (25,'2021_04_23_221730_create_categorias_table',2);
+INSERT INTO `migrations` VALUES (26,'2021_05_06_233641_create_publicacions_table',2);
+INSERT INTO `migrations` VALUES (27,'2021_05_06_233714_create_val_publis_table',2);
+INSERT INTO `migrations` VALUES (28,'2021_05_07_020158_create_val_pros_table',2);
+INSERT INTO `migrations` VALUES (29,'2021_06_03_044935_create_tipo_usuarios_table',3);

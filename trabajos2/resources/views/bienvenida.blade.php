@@ -71,14 +71,14 @@
         <div class="contenedor-prin container-xl">
             <div class="navegador row">
                 <div class="logo-in col">
-                    <a href="/bienve" class="display-6">APPSERVICES</a>
+                    <a href="/" class="display-6">LABURO</a>
                     <input type="text" class="">
                 </div>
                 <div class="col">
                     <p class="col text-center">¿Tienes una cuenta registrada?</p>
                     <div class="nav-bienve col text-center">
-                        <a href="/inicio">INICIAR SESION</a>
-                        <a href="/inicio">REGISTRARSE</a>
+                        <a href="/login">INICIAR SESION</a>
+                        <a href="/register">REGISTRARSE</a>
                     </div>
                     
                 </div>

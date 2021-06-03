@@ -1,5 +1,5 @@
-@extends('layout')
-@section("primero")
+@extends('home')
+@section("principal")
 
 <style>
     .profes{
@@ -18,9 +18,6 @@
     .profes p{
         font-size: 14px;
         margin: 0px;
-    }
-    .contenedor-profe{
-        min-height: 900px;
     }
 </style>
     <div class="contenedor-profe container">

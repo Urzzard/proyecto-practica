@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfesionalController;
 use App\Http\Controllers\ValProController;
 use App\Http\Controllers\PublicacionController;
 use App\Http\Controllers\ValPubliController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +21,10 @@ use App\Http\Controllers\ValPubliController;
 |
 */
 
-Route::view("/", "layout");
-
-Route::view("/bienve", "bienvenida");
+Route::view("/", "bienvenida");
 
 Route::view("/inicio", "inicio");
+Route::view("/ver-perfil", "mostrarUsers");
 
 Route::get('/prueba', function(){
     $resultados = DB::select("select * from contratador");
@@ -57,5 +57,7 @@ Route::view("/valoro-publi", "valorarPublicacion");
 Route::post("/valorar-publi", [ValPubliController::class, "guardar"], ["data", request()])->name("Guardar Valoraciones Publicaciones");
 Route::get("/mostrar-valpubli", [ValPubliController::class, "mostrar"]);
 Auth::routes();
+
+Route::get("/mostrar-us", [RegisterController::class, "mostrar"]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
