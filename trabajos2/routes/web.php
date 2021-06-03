@@ -22,6 +22,10 @@ use App\Http\Controllers\ValPubliController;
 
 Route::view("/", "layout");
 
+Route::view("/bienve", "bienvenida");
+
+Route::view("/inicio", "inicio");
+
 Route::get('/prueba', function(){
     $resultados = DB::select("select * from contratador");
     dd($resultados);
@@ -49,7 +53,9 @@ Route::get("/mostrar-publi", [PublicacionController::class, "mostrar"]);
 Route::get("/actualizar-publi/{id_publi}", [PublicacionController::class, "mostrarpublicacion"]);
 Route::get("/actualizar-publi", [PublicacionController::class, "actualizar"]);
 
-
 Route::view("/valoro-publi", "valorarPublicacion");
 Route::post("/valorar-publi", [ValPubliController::class, "guardar"], ["data", request()])->name("Guardar Valoraciones Publicaciones");
 Route::get("/mostrar-valpubli", [ValPubliController::class, "mostrar"]);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

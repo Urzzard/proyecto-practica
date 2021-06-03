@@ -1,19 +1,32 @@
-@extends("layout")
-@section("torax")
+@extends('layout')
+@section("primero")
 
-<table border="2px">
-    <tr>
-        <th>ID Categoria</th>
-        <th>Categoria</th>
-    </tr>
-    @foreach ($vercategoria as $categoria)
-    <tr>
+<style>
+    .cate{
+        margin: 20px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .cate a{
+        background: #6A9EFF;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 25px;
+        color: black;
+        margin-bottom: 30px;
+        padding: 20px 0px 20px 0px;
+        width: 30%;
+    }
+</style>
+
+    <div class="contenedor-cate container">
+        <div class="cate ">
+        @foreach ($vercategoria as $categoria)
+            <a href="" class=" text-center">{{$categoria["nombre_categoria"]}}</a>
         
-        <th>{{$categoria["id_categoria"]}}</th>
-        <th>{{$categoria["nombre_categoria"]}}</th>
-        
-    </tr>
-    @endforeach
-</table>
+        @endforeach
+        </div>
+    </div>
 
 @endsection
