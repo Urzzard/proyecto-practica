@@ -1,6 +1,7 @@
 @extends('home')
 @section('principal')
 
+
 <style>
     .perfil{
         background: #CFD7E8;
@@ -10,15 +11,17 @@
     }
 </style>
 
-<div class="perfil container">
-    <div>
-        <hgroup>
-            <h1>NOMBRE</h1>
-            <h5>Usuario</h5>
-            <p>E-mail</p>
-            <p>Tipo</p>
-        </hgroup>
-    </div>
-</div>
+    @foreach ($verperfil as $usuario)
+        <div class="perfil container">
+            <div>
+                <hgroup>
+                    <h1>{{$usuario["name"]}}</h1>
+                    <p>E-mail: {{$usuario["email"]}}</p>
+                    <p>Tipo: {{$usuario["nombre_tipo"]}}</p>
+                </hgroup>
+            </div>
+        </div>
+    @endforeach
+
 
 @endsection

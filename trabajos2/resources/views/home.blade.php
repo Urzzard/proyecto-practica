@@ -1,6 +1,7 @@
+
+@include('sessionstart')
 @extends('layouts.app')
 @section('content')
-
 <style>
 
     .fila-nav{
@@ -34,9 +35,10 @@
     
 </style>
         <div class="fila-nav container-xl">
+            <p></p>
             <input type="text" name="busqueda" placeholder="&#xf002 Search" class="">
             <div>
-                <a href="/ver-perfil" class=" text-center">VER PERFIL</a>
+                <a href="verperfil" class=" text-center">VER PERFIL</a>
                 <a href="/mostrar-cat" class=" text-center">VER CATEGORIAS</a>
                 <a href="/mostrar-profe" class=" text-center">VER PROFESIONALES</a>
             </div>

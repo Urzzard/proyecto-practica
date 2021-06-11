@@ -9,6 +9,8 @@ use App\Http\Controllers\ValProController;
 use App\Http\Controllers\PublicacionController;
 use App\Http\Controllers\ValPubliController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,27 +23,17 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
-Route::view("/", "bienvenida");
+/*Route::view("/ingreso-cat", "ingresarCategorias");
+Route::post("/ingresar-cat", [CategoriaController::class, "guardar"], ["data", request()])->name("Guardar Categorias");*/
 
-Route::view("/inicio", "inicio");
-Route::view("/ver-perfil", "mostrarUsers");
-
-Route::get('/prueba', function(){
-    $resultados = DB::select("select * from contratador");
-    dd($resultados);
-});
-
-Route::view("/ingreso-cat", "ingresarCategorias");
-Route::post("/ingresar-cat", [CategoriaController::class, "guardar"], ["data", request()])->name("Guardar Categorias");
-Route::get("/mostrar-cat", [CategoriaController::class, "mostrar"]);
-
+/*
 Route::view("/valoro-pro", "valorarProfesionales");
 Route::post("/valorar-pro", [ValProController::class, "guardar"], ["data", request()])->name("Guardar Valoraciones Profesionales");
 Route::get("/mostrar-valpro", [ValProController::class, "mostrar"]);
 
 Route::view("/ingreso-profe", "ingresarProfesionales");
 Route::post("/ingresar-profe", [ProfesionalController::class, "guardar"], ["data", request()])->name("Guardar Profesionales");
-Route::get("/mostrar-profe", [ProfesionalController::class, "mostrar"]);
+
 
 Route::view("/ingreso-contra", "ingresarContratadores");
 Route::post("/ingresar-contra", [ContratadorController::class, "guardar"], ["data", request()])->name("Guardar Contratador");
@@ -55,9 +47,18 @@ Route::get("/actualizar-publi", [PublicacionController::class, "actualizar"]);
 
 Route::view("/valoro-publi", "valorarPublicacion");
 Route::post("/valorar-publi", [ValPubliController::class, "guardar"], ["data", request()])->name("Guardar Valoraciones Publicaciones");
-Route::get("/mostrar-valpubli", [ValPubliController::class, "mostrar"]);
+Route::get("/mostrar-valpubli", [ValPubliController::class, "mostrar"]);*/
+
+Route::view("/", "bienvenida")->name('/');
+
+Route::view("/inicio", "inicio");
+Route::get('{users}/verperfil', [UserController::class, 'verperfil'])->name('verperfil');
+
 Auth::routes();
 
 Route::get("/mostrar-us", [RegisterController::class, "mostrar"]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('{users}/home', [UserController::class, 'home'])->name('home');
+Route::get("/mostrar-profe", [ProfesionalController::class, "mostrar"]);
+Route::get("/mostrar-cat", [CategoriaController::class, "mostrar"]);
+Route::post('session',[UserController::class,'sessionvalidada'])->name('session');
